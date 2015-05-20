@@ -17,18 +17,23 @@
           <div className="calendar">
             <h1>Calendar</h1>
             <Month />
+            <Weeks />
           </div>
         );
       }
     });
 
     var Month = React.createClass({
+      currentMonth: function(){
+        var m = moment().format("MMM");
+        return(
+          m
+        )
+      },
       render: function(){
         return (
           <div className="month">
             month
-            <Weeks />
-
           </div>
         )
       }
@@ -50,6 +55,39 @@
         return(
           <div className="days">
             days
+            <EventsContainer />
+          </div>
+        )
+      }
+    });
+
+    var EventsContainer = React.createClass({
+      render: function(){
+        return(
+          <div className="eventsContainer">
+            <EventsList />
+          </div>
+        )
+      }
+    });
+
+    var EventsList = React.createClass({
+      render: function(){
+        return(
+          <div className="eventsList">
+            This is a list of events for a day
+            <EventsInput />
+          </div>
+        )
+      }
+    });
+
+    var EventsInput = React.createClass({
+      render: function(){
+        return(
+          <div className="eventsInput">
+            <input type="text" placeholder="New Event"/>
+            <input type="submit" value="Create"/>
           </div>
         )
       }

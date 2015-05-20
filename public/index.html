@@ -17,7 +17,6 @@
           <div className="calendar">
             <h1>Calendar</h1>
             <Month />
-            <Week />
           </div>
         );
       }
@@ -28,16 +27,29 @@
         return (
           <div className="month">
             month
+            <Weeks />
+
           </div>
         )
       }
     });
 
-    var Week = React.createClass({
+    var Weeks = React.createClass({
       render: function(){
         return(
-          <div className="week">
-            week
+          <div className="weeks">
+            weeks
+            <Days />
+          </div>
+        )
+      }
+    });
+
+    var Days = React.createClass({
+      render: function(){
+        return(
+          <div className="days">
+            days
           </div>
         )
       }
